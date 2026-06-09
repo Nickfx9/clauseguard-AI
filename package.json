@@ -1,0 +1,9 @@
+{
+  "name": "clauseguard-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start-backend": "node backend/server.js",
+    "dev-frontend": "cd frontend && npm run dev"
+  }
+}
