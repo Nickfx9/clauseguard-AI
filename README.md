@@ -138,14 +138,13 @@ ClauseGuard was designed with safety-first principles:
 
 ## 📁 Repository Structure
 
-
+```text
 clauseguard-ai/
-├── frontend/ # React + Tailwind workspace UI
-├── backend/ # Node.js Express orchestration server
-├── cli/ # Copilot-assisted CLI audit utility
-├── assets/ # Diagrams and documentation visuals
+├── frontend/        # React + Tailwind workspace UI
+├── backend/         # Node.js Express orchestration server
+├── cli/             # Copilot-assisted CLI audit utility
+├── assets/          # Diagrams and documentation visuals
 └── README.md
-
 
 ---
 
