@@ -28,45 +28,52 @@ The final report displays categorized safety severity metrics, explicit statutor
 ![Completed Safety Audit](./frontend/public/assets/audit-report.png)
 
 ---
-
 ## 🏗️ Technical Architecture & Multi-Source IQ Flow
 
-ClauseGuard coordinates an advanced, parallel context-retrieval pipeline built directly to showcase the capabilities of the **Microsoft IQ** intelligence layer.
+ClauseGuard coordinates an advanced, parallel context-retrieval pipeline built to showcase the capabilities of the **Microsoft IQ** intelligence layer.
 
-+-----------------------------+
-                  |   Freelancer Workspace UI   |
-                  |      (React / Tailwind)     |
-                  +--------------+--------------+
-                                 |
-                       (Pasted Contract Text)
-                                 v
-                  +--------------+--------------+
-                  |  Node.js Express API Server |
-                  +--------------+--------------+
-                                 |
-                   (Parallel Agentic Requests)
-              +------------------+------------------+
-              |                                     |
-              v                                     v
- +------------+------------+           +------------+------------+
- |        Foundry IQ       |           |   Foundry IQ: Web IQ    |
- | (Serverless Knowledge)  |           | (Live Intelligence Layer)|
- +------------+------------+           +------------+------------+
-              |                                     |
-   (Grounded Statutory Laws)             (Real-time Web Signals)
-              |                                     |
-              +------------------+------------------+
-                                 |
-                                 v
-                  +--------------+--------------+
-                  |   Unified Safety Audit UI   |
-                  |    (Red Flags & Citations)  |
-                  +-----------------------------+
+---
 
-### Integrated Systems Strategy:
-* **Microsoft Foundry IQ Core Integration:** The backend server maps unstructured contract data directly to the unified `/knowledgebases/{id}/query` endpoint pattern. This connects the agent to an indexed repository of local labor codes and freelance protection acts (e.g., *Independent Contractor Protection Act*), ensuring zero-hallucination compliance reports.
-* **Microsoft Web IQ MCP Source Integration:** Behind the endpoint layer, the system leverages parallel web-retrieval routines via Web IQ to flag active class-action lawsuits, regulatory changes, and sudden terms-of-service disputes live on the web.
+### Architecture Flow (Top → Bottom)
 
+**1. Freelancer Workspace UI (React / Tailwind)**  
+Users paste unstructured contract text into a clean client interface for analysis.
+
+⬇️
+
+**2. Node.js Express API Server**  
+Acts as the orchestration layer:
+- Receives contract payloads  
+- Dispatches parallel agentic requests  
+- Aggregates and normalizes results  
+
+⬇️
+
+**3. Parallel Intelligence Agents**
+
+- **Foundry IQ — Serverless Knowledge Agent**  
+  Analyzes contract clauses against indexed statutory sources and freelancer protection laws to produce grounded, citation-backed findings.
+
+- **Foundry IQ: Web IQ — Live Intelligence Agent**  
+  Performs real-time web retrieval to detect active lawsuits, regulatory changes, and emerging terms-of-service disputes.
+
+⬇️
+
+**4. Unified Safety Audit UI**  
+Outputs a consolidated compliance report including:
+- Clause-level red flags  
+- Statutory and web citations  
+- Explainable safety insights  
+
+---
+
+### Integrated Systems Strategy
+
+**Microsoft Foundry IQ Core Integration**  
+The backend maps unstructured contract data directly to the unified `/knowledgebases/{id}/query` endpoint pattern. This connects the system to indexed labor codes and freelance protection acts (e.g., *Independent Contractor Protection Act*), ensuring zero-hallucination compliance reports.
+
+**Microsoft Web IQ MCP Source Integration**  
+Behind the endpoint layer, the platform executes parallel web-retrieval routines via Web IQ to surface active class-action lawsuits, regulatory changes, and sudden contract disputes in real time.
 ---
 ## 🤖 AI-Assisted Development Profile (GitHub Copilot Integration)
  ClauseGuard was fully developed using **GitHub Copilot in VS Code** across multiple interactive modalities:
