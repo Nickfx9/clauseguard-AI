@@ -1,112 +1,181 @@
-# ClauseGuard 🛡️
-### Independent Contractor Legal Safety Workspace
+# ClauseGuard 🛡️  
+### Independent Contractor Legal Safety Workspace  
 *Submission for the Microsoft Agents League Hackathon @ AI Skills Fest 2026 — Creative Apps Track*
 
-ClauseGuard is an AI-assisted creative productivity application engineered to protect independent freelance developers, gig workers, and remote creators. It acts as an automated compliance workspace, transforming opaque, jargon-heavy legal contract blocks into clear, scannable safety diagnostics backed by grounded statutory citations and live web risk signals.
+ClauseGuard is an AI-assisted creative productivity application designed to protect independent freelance developers, gig workers, and remote creators. It transforms dense, jargon-heavy legal contracts into clear, scannable safety diagnostics backed by grounded statutory citations and live web risk signals.
 
 ---
 
 ## 🎯 The Core Problem Solved
-In the modern digital economy, freelance developers routinely sign click-through platform agreements or rapidly updated Terms of Service (ToS) documents. These agreements frequently bury predatory clauses—such as aggressive intellectual property (IP) transfers, immediate non-negotiable fee revisions, and foreign mandatory arbitration loops—deep within dense legal walls. 
 
-Hiring formal legal counsel for every micro-contract is financially impossible for individual creators. **ClauseGuard** solves this by remixing complex legal prose into an accessible, high-fidelity security report.
+In the modern digital economy, freelancers routinely agree to click-through platform contracts and rapidly changing Terms of Service documents. These agreements often conceal predatory clauses—such as excessive intellectual property transfers, unilateral fee revisions, or foreign arbitration mandates—inside dense legal text.
+
+Hiring legal counsel for every contract is financially unrealistic for most independent creators. **ClauseGuard** bridges this gap by converting opaque legal language into an accessible, explainable safety audit that helps creators make informed decisions before signing.
+
+---
+
+## 🧩 Challenge Alignment — Creative Apps Track
+
+ClauseGuard qualifies as a **Creative App** by transforming traditionally inaccessible legal content into an interactive, human-readable safety workspace.
+
+**Creative App characteristics demonstrated:**
+- Converts complex legal prose into structured, scannable safety insights
+- Visualizes multi-step agentic reasoning during analysis
+- Enhances creator decision-making rather than replacing human judgment
+- Embeds AI directly into a real-world productivity workflow
+
+The application prioritizes clarity, accessibility, and creative empowerment—core objectives of the Creative Apps challenge.
 
 ---
 
 ## 📊 Application Interface Workspace
 
 ### 1. Ingestion Viewport (Empty State)
-A minimalist, premium dark-mode interface designed to minimize cognitive overhead and friction during ingestion.
+A minimalist dark-mode interface designed to reduce cognitive overhead during contract ingestion.  
 ![Workspace Empty Slate](./frontend/public/assets/empty-state.png)
 
-### 2. Multi-Step Agentic Reasoning Loop (Active Evaluation)
-When an audit is triggered, the workspace visualizes the underlying multi-step reasoning sequence, keeping the developer informed as the agent decomposes and evaluates the text.
+### 2. Multi-Step Agentic Reasoning Loop
+During evaluation, the UI visualizes the agent’s reasoning phases, keeping users informed as the contract is decomposed and analyzed.  
 ![Active Reasoning Loader](./frontend/public/assets/loading-agent.png)
 
 ### 3. Grounded Analysis Matrix (Audit Complete)
-The final report displays categorized safety severity metrics, explicit statutory citations, and live web risk profiles.
+The final audit presents clause-level severity indicators, statutory citations, and live web risk signals.  
 ![Completed Safety Audit](./frontend/public/assets/audit-report.png)
 
 ---
+
 ## 🏗️ Technical Architecture & Multi-Source IQ Flow
 
 ClauseGuard coordinates an advanced, parallel context-retrieval pipeline built to showcase the capabilities of the **Microsoft IQ** intelligence layer.
 
+
 ┌───────────────────────────────────────────────┐
-│           Freelancer Workspace UI              │
-│             (React / Tailwind)                 │
-│                                               │
-│   • User pastes contract / ToS text            │
+│ Freelancer Workspace UI │
+│ (React / Tailwind) │
+│ │
+│ • User pastes contract / ToS text │
 └───────────────────────────┬───────────────────┘
-                            │
-                            │  Unstructured Contract Text
-                            ▼
+│
+│ Unstructured Contract Text
+▼
 ┌───────────────────────────────────────────────┐
-│           Node.js Express API Server            │
-│                                               │
-│   • Request validation & sanitization          │
-│   • Orchestrates parallel agent calls          │
-│   • Normalizes and aggregates results          │
+│ Node.js Express API Server │
+│ │
+│ • Request validation & sanitization │
+│ • Orchestrates parallel agent calls │
+│ • Normalizes and aggregates results │
 └───────────────────────────┬───────────────────┘
-                            │
-            ┌───────────────┴────────────────┐
-            │        Parallel Intelligence     │
-            │             Execution            │
-            │                                  │
-            ▼                                  ▼
-┌───────────────────────────────┐   ┌───────────────────────────────┐
-│          Foundry IQ            │   │        Foundry IQ: Web IQ    │
-│   Serverless Knowledge Agent   │   │   Live Intelligence Agent    │
-│                               │   ││
-│ • Statutory labor laws         │   │ • Active lawsuits            │
-│ • Freelancer protection acts  │   │ • Regulatory changes          │
-│ • Grounded legal citations    │   │ • Emerging ToS disputes       │
-└─────────────────────┬─────────┘   └─────────────────────┬─────────┘
-                      │                                   │
-                      └───────────────┬───────────────────┘
-                                      │
-                                      ▼
+│
+┌───────────────┴────────────────┐
+│ Parallel Intelligence │
+│ Execution │
+│ │
+▼ ▼
+┌───────────────────────────────┐ ┌───────────────────────────────┐
+│ Foundry IQ │ │ Foundry IQ: Web IQ │
+│ Serverless Knowledge Agent │ │ Live Intelligence Agent │
+│ │ │ │
+│ • Statutory labor laws │ │ • Active lawsuits │
+│ • Freelancer protection acts │ │ • Regulatory changes │
+│ • Grounded legal citations │ │ • Emerging ToS disputes │
+└─────────────────────┬─────────┘ └─────────────────────┬─────────┘
+│ │
+└───────────────┬───────────────────┘
+│
+▼
 ┌───────────────────────────────────────────────┐
-│             Unified Safety Audit UI            │
-│                                               │
-│   • Clause-level red flags                     │
-│   • Statutory & web citations                  │
-│   • Explainable safety insights                │
+│ Unified Safety Audit UI │
+│ │
+│ • Clause-level red flags │
+│ • Statutory & web citations │
+│ • Explainable safety insights │
 └───────────────────────────────────────────────┘
-### Integrated Systems Strategy
+
+
+> **Design Note:** Foundry IQ and Web IQ execute in parallel to minimize latency while combining grounded statutory compliance with real-time legal risk detection.
+
+---
+
+## 🔗 Integrated Systems Strategy
 
 **Microsoft Foundry IQ Core Integration**  
-The backend maps unstructured contract data directly to the unified `/knowledgebases/{id}/query` endpoint pattern. This connects the system to indexed labor codes and freelance protection acts (e.g., *Independent Contractor Protection Act*), ensuring zero-hallucination compliance reports.
+Unstructured contract text is mapped directly to the unified `/knowledgebases/{id}/query` pattern, enabling analysis against indexed labor laws and freelance protection statutes. This grounding strategy ensures citation-backed outputs and minimizes hallucination risk.
 
 **Microsoft Web IQ MCP Source Integration**  
-Behind the endpoint layer, the platform executes parallel web-retrieval routines via Web IQ to surface active class-action lawsuits, regulatory changes, and sudden contract disputes in real time.
+Parallel Web IQ retrieval surfaces live legal signals such as class-action lawsuits, regulatory shifts, and emerging contractual disputes relevant to the analyzed clauses.
+
 ---
+
 ## 🤖 AI-Assisted Development (GitHub Copilot)
 
-ClauseGuard was developed with the assistance of **GitHub Copilot** tools in **VS Code**, meeting the AI-assisted development requirement of the Microsoft Agents League Hackathon.
+ClauseGuard was developed using **GitHub Copilot** tools within **VS Code**, satisfying the AI-assisted development requirement of the hackathon.
 
 Copilot was used to:
-- Plan and iterate on asynchronous API flows in the Node.js Express backend
+- Plan and refine asynchronous orchestration flows in the Node.js backend
 - Accelerate React component scaffolding and state management patterns
-- Assist with utility generation for client-side text sanitization
-- Prototype and refine CLI workflows using Copilot-assisted terminal interactions
+- Assist with client-side text sanitization utilities
+- Prototype CLI workflows through Copilot-assisted terminal interactions
 
-These tools supported faster iteration, safer defaults, and consistent implementation across the frontend, backend, and CLI surfaces.
+All Copilot-generated suggestions were reviewed, adapted, and validated by the developer to ensure correctness, security, and maintainability.
 
-Copilot suggestions were reviewed and adapted by the developer to ensure correctness and security
+---
+
+## 🔐 Reliability, Safety & Responsible AI
+
+ClauseGuard was designed with safety-first principles:
+
+- No contract data is persisted beyond active analysis
+- Client-side sanitization removes emails and phone numbers before submission
+- All statutory findings are citation-backed
+- Outputs are framed as risk indicators, not legal advice
+
+### Known Limitations
+- Jurisdictional accuracy depends on indexed statutory sources
+- Web IQ signal coverage may vary by region
+- ClauseGuard does not replace professional legal counsel
+
+---
+
+## 📁 Repository Structure
+
+
+clauseguard-ai/
+├── frontend/ # React + Tailwind workspace UI
+├── backend/ # Node.js Express orchestration server
+├── cli/ # Copilot-assisted CLI audit utility
+├── assets/ # Diagrams and documentation visuals
+└── README.md
+
+
+---
+
+## 🎥 Demo Video
+
+A 5-minute walkthrough demonstrating:
+- Contract ingestion
+- Live multi-step agent reasoning
+- Statutory citation grounding
+- Web IQ risk detection
+- Final safety audit output
+
+📺 **Demo Video:** *(Link to be added before final submission)*
+
 ---
 
 ## ⚙️ Local Workspace Verification
 
-### 1. Project Ingestion
+### 1. Clone Repository
 ```bash
-git clone [https://github.com/Nickfx9/clauseguard-AI.git](https://github.com/Nickfx9/clauseguard-AI.git)
+git clone https://github.com/Nickfx9/clauseguard-AI.git
 cd clauseguard-AI
 2. Environment Setup
-Create a .env file in your root folder:
 
-Code snippet
+Create a .env file in the root directory:
+
 PORT=5000
-FOUNDRY_IQ_ENDPOINT=[https://api.foundry.microsoft.com/v1](https://api.foundry.microsoft.com/v1)
+FOUNDRY_IQ_ENDPOINT=https://api.foundry.microsoft.com/v1
 FOUNDRY_IQ_KB_ID=clauseguard-statutory-laws-2026
 FOUNDRY_IQ_API_KEY=mock_key_during_initial_local_dev
+3. Run Services
+npm install
+npm run dev
