@@ -17,6 +17,16 @@ const isMockKey = !process.env.FOUNDRY_IQ_API_KEY ||
                   process.env.FOUNDRY_IQ_API_KEY.includes('mock') || 
                   process.env.FOUNDRY_IQ_API_KEY === 'your_microsoft_foundry_api_key_here';
 
+// Data-Scrubbing Middleware: Fulfills the Security Disclaimer requirements
+function sanitizeContractText(text) {
+    let sanitized = text;
+    // Remove emails
+    sanitized = sanitized.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, "[REDACTED_EMAIL]");
+    // Remove phone numbers
+    sanitized = sanitized.replace(/\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/g, "[REDACTED_CONTACT]");
+    return sanitized;
+}
+
 // Main Orchestration Routing Matrix
 app.post('/api/v1/audit-contract', async (req, res) => {
     const { contractText, sourcePlatform } = req.body;
@@ -25,31 +35,39 @@ app.post('/api/v1/audit-contract', async (req, res) => {
         return res.status(400).json({ error: "Missing body requirement: contractText string is empty." });
     }
 
-    // DEVELOPMENT LOCAL MODE: Runs smoothly if live Microsoft endpoints aren't provisioned yet
+    // Apply privacy filter before checking endpoints
+    const safeContractText = sanitizeContractText(contractText);
+
+    // DEVELOPMENT LOCAL MODE: Deliberate 4-second delay added for capturing high-quality screenshots
     if (isMockKey) {
         console.log(`[ClauseGuard DevMode] Auditing text for platform context: ${sourcePlatform || 'Unspecified'}`);
+        console.log(` -> Simulating multi-step context engineering passes (4000ms delay active)...`);
         
-        // Simulating the exact parallel extraction shape from Foundry + Web IQ
-        return res.json({
-            status: "Success",
-            mode: "Local Dev Grounded Mock Engine",
-            groundedAnalysis: `### CLAUSEGUARD RISK ASSESSMENT REPORT\n\n#### 🚨 1. INTELLECTUAL PROPERTY EXPLOITATION (SEVERITY: HIGH)\nThe submitted contract text contains language matching predatory IP transfer heuristics. Section clauses dictate that any modifications, auxiliary code strings, or digital assets authored during the agreement lifespan automatically assign ownership to the client entity. \n\n#### ⚠️ 2. BINDING ARBITRATION PIPELINE (SEVERITY: MEDIUM)\nThere is an explicit waver of judicial class action litigation rights. Any transactional or performance-based disputes are locked to private, binding arbitration tribunals located outside local contractor jurisdiction.\n\n#### 💡 3. UNILATERAL REVISION LOOPHOLES (SEVERITY: HIGH)\nThe platform reserves the explicit right to alter payment schedules, fee models, and commission tiers dynamically without formal review periods or mandatory advance notification blocks.`,
-            citations: [
-                "Statutory Grounding Reference: Independent Contractor Protection Act, Cap 12",
-                "IP Statute: Intellectual Property Protection Directive (Section 4.b)"
-            ],
-            liveWebSignals: [
-                {
-                    title: "Class Action Filings: Gig Workers Challenge Dynamic Terms",
-                    url: "https://example.com/legal-news/dynamic-terms-suit"
-                },
-                {
-                    title: "Regulatory Warning: Arbitrary Payment Retentions Under Review",
-                    url: "https://example.com/regulatory/contractor-fee-protections"
-                }
-            ],
-            timestamp: new Date().toISOString()
-        });
+        setTimeout(() => {
+            return res.json({
+                status: "Success",
+                mode: "Local Dev Grounded Mock Engine",
+                architecture: "Microsoft Foundry IQ Serverless (Multi-Source Knowledge Base)",
+                groundedAnalysis: `### CLAUSEGUARD RISK ASSESSMENT REPORT\n\n#### 🚨 1. INTELLECTUAL PROPERTY EXPLOITATION (SEVERITY: HIGH)\nThe submitted contract text contains language matching predatory IP transfer heuristics. Section clauses dictate that any modifications, auxiliary code strings, or digital assets authored during the agreement lifespan automatically assign ownership to the client entity. \n\n#### ⚠️ 2. BINDING ARBITRATION PIPELINE (SEVERITY: MEDIUM)\nThere is an explicit waiver of judicial class action litigation rights. Any transactional or performance-based disputes are locked to private, binding arbitration tribunals located outside local contractor jurisdiction.\n\n#### 💡 3. UNILATERAL REVISION LOOPHOLES (SEVERITY: HIGH)\nThe platform reserves the explicit right to alter payment schedules, fee models, and commission tiers dynamically without formal review periods or mandatory advance notification blocks.`,
+                citations: [
+                    "Statutory Grounding Reference: Independent Contractor Protection Act, Cap 12",
+                    "IP Statute: Intellectual Property Protection Directive (Section 4.b)"
+                ],
+                liveWebSignals: [
+                    {
+                        title: "Class Action Filings: Gig Workers Challenge Dynamic Terms",
+                        url: "https://example.com/legal-news/dynamic-terms-suit"
+                    },
+                    {
+                        title: "Regulatory Warning: Arbitrary Payment Retentions Under Review",
+                        url: "https://example.com/regulatory/contractor-fee-protections"
+                    }
+                ],
+                timestamp: new Date().toISOString()
+            });
+        }, 4000);
+
+        return; // Halts pipeline execution until timeout completes
     }
 
     // PRODUCTION LIVE PASS: Connects directly to Microsoft IQ Fabric
@@ -59,7 +77,7 @@ app.post('/api/v1/audit-contract', async (req, res) => {
         const [foundryResponse, webResponse] = await Promise.all([
             // Stream A: Grounded Knowledge base validation via Foundry IQ API Endpoint
             axios.post(`${process.env.FOUNDRY_IQ_ENDPOINT}/knowledgebases/${process.env.FOUNDRY_IQ_KB_ID}/query`, {
-                query: `Perform an exhaustive contractual evaluation. Identify intellectual property transfers, liability caps, mandatory arbitration pipelines, and payment processing loops within this contract context: ${contractText}`,
+                query: `Perform an exhaustive contractual evaluation. Identify intellectual property transfers, liability caps, mandatory arbitration pipelines, and payment processing loops within this contract context: ${safeContractText}`,
                 options: { semantic_ranker: true, max_tokens: 1500 }
             }, {
                 headers: { 
