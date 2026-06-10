@@ -32,39 +32,24 @@ The final report displays categorized safety severity metrics, explicit statutor
 
 ClauseGuard coordinates an advanced, parallel context-retrieval pipeline built to showcase the capabilities of the **Microsoft IQ** intelligence layer.
 
----
+```mermaid
+flowchart TB
+    UI[Freelancer Workspace UI<br/>(React + Tailwind)]
+    API[Node.js Express API<br/>Orchestration Layer]
 
-### Architecture Flow (Top → Bottom)
+    subgraph IQ[Microsoft IQ Intelligence Layer]
+        FIQ[Foundry IQ<br/>Serverless Knowledge Agent]
+        WIQ[Foundry IQ: Web IQ<br/>Live Intelligence Agent]
+    end
 
-**1. Freelancer Workspace UI (React / Tailwind)**  
-Users paste unstructured contract text into a clean client interface for analysis.
+    UI -->|Contract Text| API
+    API -->|Parallel Agent Calls| FIQ
+    API -->|Parallel Agent Calls| WIQ
 
-⬇️
+    FIQ -->|Grounded Statutory Findings| API
+    WIQ -->|Live Web Signals| API
 
-**2. Node.js Express API Server**  
-Acts as the orchestration layer:
-- Receives contract payloads  
-- Dispatches parallel agentic requests  
-- Aggregates and normalizes results  
-
-⬇️
-
-**3. Parallel Intelligence Agents**
-
-- **Foundry IQ — Serverless Knowledge Agent**  
-  Analyzes contract clauses against indexed statutory sources and freelancer protection laws to produce grounded, citation-backed findings.
-
-- **Foundry IQ: Web IQ — Live Intelligence Agent**  
-  Performs real-time web retrieval to detect active lawsuits, regulatory changes, and emerging terms-of-service disputes.
-
-⬇️
-
-**4. Unified Safety Audit UI**  
-Outputs a consolidated compliance report including:
-- Clause-level red flags  
-- Statutory and web citations  
-- Explainable safety insights  
-
+    API -->|Unified Safety Audit| OUT[Safety Audit UI<br/>(Red Flags & Citations)]
 ---
 
 ### Integrated Systems Strategy
@@ -75,14 +60,19 @@ The backend maps unstructured contract data directly to the unified `/knowledgeb
 **Microsoft Web IQ MCP Source Integration**  
 Behind the endpoint layer, the platform executes parallel web-retrieval routines via Web IQ to surface active class-action lawsuits, regulatory changes, and sudden contract disputes in real time.
 ---
-## 🤖 AI-Assisted Development Profile (GitHub Copilot Integration)
- ClauseGuard was fully developed using **GitHub Copilot in VS Code** across multiple interactive modalities:
+## 🤖 AI-Assisted Development (GitHub Copilot)
 
-* **Plan Mode:** Utilized to map out the asynchronous execution chains of the Node.js Express server, coordinating the concurrent multi-stream calls via `Promise.all` to optimize engine latency.
-* **Edit Mode / Inline Chat (`Ctrl + I`):** Used to instantly inject regular expression utilities (`sanitizeContractText`) capable of parsing text buffers and redacting emails/phone numbers locally before submission. This directly guarantees compliance with the strict **Official Hackathon Security Disclaimer** regarding confidential data.
-* **Agent Mode:** Deployed to autonomously scaffold out the React state managers (`loading`, `currentStep`, `result`), configure Tailwind's dark-mode typography tokens, and implement the custom markdown split-parser that converts raw response symbols into clean UI banners.
-* **Companion Copilot CLI SDK:** Implemented a terminal-native utility inside the `/cli` folder using the `@github/copilot-cli-sdk` core libraries, enabling developers to execute legal audits straight out of local project directories.
+ClauseGuard was developed with the assistance of **GitHub Copilot** tools in **VS Code**, meeting the AI-assisted development requirement of the Microsoft Agents League Hackathon.
 
+Copilot was used to:
+- Plan and iterate on asynchronous API flows in the Node.js Express backend
+- Accelerate React component scaffolding and state management patterns
+- Assist with utility generation for client-side text sanitization
+- Prototype and refine CLI workflows using Copilot-assisted terminal interactions
+
+These tools supported faster iteration, safer defaults, and consistent implementation across the frontend, backend, and CLI surfaces.
+
+Copilot suggestions were reviewed and adapted by the developer to ensure correctness and security
 ---
 
 ## ⚙️ Local Workspace Verification
