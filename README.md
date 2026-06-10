@@ -55,12 +55,12 @@ ClauseGuard coordinates an advanced, parallel context-retrieval pipeline built t
             │                                  │
             ▼                                  ▼
 ┌───────────────────────────────┐   ┌───────────────────────────────┐
-│          Foundry IQ            │   │        Foundry IQ: Web IQ      │
-│   Serverless Knowledge Agent   │   │     Live Intelligence Agent    │
-│                               │   │                               │
-│ • Statutory labor laws         │   │ • Active lawsuits             │
-│ • Freelancer protection acts  │   │ • Regulatory changes           │
-│ • Grounded legal citations    │   │ • Emerging ToS disputes        │
+│          Foundry IQ            │   │        Foundry IQ: Web IQ    │
+│   Serverless Knowledge Agent   │   │   Live Intelligence Agent    │
+│                               │   ││
+│ • Statutory labor laws         │   │ • Active lawsuits            │
+│ • Freelancer protection acts  │   │ • Regulatory changes          │
+│ • Grounded legal citations    │   │ • Emerging ToS disputes       │
 └─────────────────────┬─────────┘   └─────────────────────┬─────────┘
                       │                                   │
                       └───────────────┬───────────────────┘
