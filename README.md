@@ -32,26 +32,47 @@ The final report displays categorized safety severity metrics, explicit statutor
 
 ClauseGuard coordinates an advanced, parallel context-retrieval pipeline built to showcase the capabilities of the **Microsoft IQ** intelligence layer.
 
-```mermaid
-flowchart TB
-    UI[Freelancer Workspace UI<br/>(React + Tailwind)]
-    API[Node.js Express API<br/>Orchestration Layer]
-
-    subgraph IQ[Microsoft IQ Intelligence Layer]
-        FIQ[Foundry IQ<br/>Serverless Knowledge Agent]
-        WIQ[Foundry IQ: Web IQ<br/>Live Intelligence Agent]
-    end
-
-    UI -->|Contract Text| API
-    API -->|Parallel Agent Calls| FIQ
-    API -->|Parallel Agent Calls| WIQ
-
-    FIQ -->|Grounded Statutory Findings| API
-    WIQ -->|Live Web Signals| API
-
-    API -->|Unified Safety Audit| OUT[Safety Audit UI<br/>(Red Flags & Citations)]
----
-
+┌───────────────────────────────────────────────┐
+│           Freelancer Workspace UI              │
+│             (React / Tailwind)                 │
+│                                               │
+│   • User pastes contract / ToS text            │
+└───────────────────────────┬───────────────────┘
+                            │
+                            │  Unstructured Contract Text
+                            ▼
+┌───────────────────────────────────────────────┐
+│           Node.js Express API Server            │
+│                                               │
+│   • Request validation & sanitization          │
+│   • Orchestrates parallel agent calls          │
+│   • Normalizes and aggregates results          │
+└───────────────────────────┬───────────────────┘
+                            │
+            ┌───────────────┴────────────────┐
+            │        Parallel Intelligence     │
+            │             Execution            │
+            │                                  │
+            ▼                                  ▼
+┌───────────────────────────────┐   ┌───────────────────────────────┐
+│          Foundry IQ            │   │        Foundry IQ: Web IQ      │
+│   Serverless Knowledge Agent   │   │     Live Intelligence Agent    │
+│                               │   │                               │
+│ • Statutory labor laws         │   │ • Active lawsuits             │
+│ • Freelancer protection acts  │   │ • Regulatory changes           │
+│ • Grounded legal citations    │   │ • Emerging ToS disputes        │
+└─────────────────────┬─────────┘   └─────────────────────┬─────────┘
+                      │                                   │
+                      └───────────────┬───────────────────┘
+                                      │
+                                      ▼
+┌───────────────────────────────────────────────┐
+│             Unified Safety Audit UI            │
+│                                               │
+│   • Clause-level red flags                     │
+│   • Statutory & web citations                  │
+│   • Explainable safety insights                │
+└───────────────────────────────────────────────┘
 ### Integrated Systems Strategy
 
 **Microsoft Foundry IQ Core Integration**  
