@@ -48,50 +48,48 @@ The final audit presents clause-level severity indicators, statutory citations, 
 
 ClauseGuard coordinates an advanced, parallel context-retrieval pipeline built to showcase the capabilities of the **Microsoft IQ** intelligence layer.
 
-
+```text
 ┌───────────────────────────────────────────────┐
-│ Freelancer Workspace UI │
-│ (React / Tailwind) │
-│ │
-│ • User pastes contract / ToS text │
+│           Freelancer Workspace UI              │
+│             (React / Tailwind)                 │
+│                                               │
+│  • User pastes contract / ToS text             │
 └───────────────────────────┬───────────────────┘
-│
-│ Unstructured Contract Text
-▼
+                            │
+                            │  Unstructured Contract Text
+                            ▼
 ┌───────────────────────────────────────────────┐
-│ Node.js Express API Server │
-│ │
-│ • Request validation & sanitization │
-│ • Orchestrates parallel agent calls │
-│ • Normalizes and aggregates results │
+│           Node.js Express API Server            │
+│                                               │
+│  • Request validation & sanitization           │
+│  • Orchestrates parallel agent calls           │
+│  • Normalizes and aggregates results           │
 └───────────────────────────┬───────────────────┘
-│
-┌───────────────┴────────────────┐
-│ Parallel Intelligence │
-│ Execution │
-│ │
-▼ ▼
-┌───────────────────────────────┐ ┌───────────────────────────────┐
-│ Foundry IQ │ │ Foundry IQ: Web IQ │
-│ Serverless Knowledge Agent │ │ Live Intelligence Agent │
-│ │ │ │
-│ • Statutory labor laws │ │ • Active lawsuits │
-│ • Freelancer protection acts │ │ • Regulatory changes │
-│ • Grounded legal citations │ │ • Emerging ToS disputes │
-└─────────────────────┬─────────┘ └─────────────────────┬─────────┘
-│ │
-└───────────────┬───────────────────┘
-│
-▼
+                            │
+            ┌───────────────┴────────────────┐
+            │        Parallel Intelligence     │
+            │             Execution            │
+            │                                  │
+            ▼                                  ▼
+┌───────────────────────────────┐   ┌───────────────────────────────┐
+│          Foundry IQ            │   │        Foundry IQ: Web IQ      │
+│   Serverless Knowledge Agent   │   │     Live Intelligence Agent    │
+│                               │   │                               │
+│  • Statutory labor laws        │   │  • Active lawsuits             │
+│  • Freelancer protection acts │   │  • Regulatory changes           │
+│  • Grounded legal citations   │   │  • Emerging ToS disputes        │
+└─────────────────────┬─────────┘   └─────────────────────┬─────────┘
+                      │                                   │
+                      └───────────────┬───────────────────┘
+                                      │
+                                      ▼
 ┌───────────────────────────────────────────────┐
-│ Unified Safety Audit UI │
-│ │
-│ • Clause-level red flags │
-│ • Statutory & web citations │
-│ • Explainable safety insights │
+│             Unified Safety Audit UI            │
+│                                               │
+│  • Clause-level red flags                      │
+│  • Statutory & web citations                   │
+│  • Explainable safety insights                 │
 └───────────────────────────────────────────────┘
-
-
 > **Design Note:** Foundry IQ and Web IQ execute in parallel to minimize latency while combining grounded statutory compliance with real-time legal risk detection.
 
 ---
