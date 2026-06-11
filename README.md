@@ -137,13 +137,14 @@ ClauseGuard was designed with safety-first principles:
 ## 📁 Repository Structure
 
 ```text
-clauseguard-ai/
-├── frontend/        # React + Tailwind workspace UI
-├── backend/         # Node.js Express orchestration server
-├── cli/             # Copilot-assisted CLI audit utility
-├── assets/          # Diagrams and documentation visuals
-└── README.md
-
+clauseguard-AI/
+├── backend/          # Node.js Express orchestration server & PII security gate
+├── frontend/         # Vite + React dashboard workspace UI & Tailwind tokens
+├── .env              # Local environment runtime configuration constants (git-ignored)
+├── .gitignore        # Explicit exclusion matrix targeting node_modules and secrets
+├── LICENSE           # Official open-source MIT legal compliance documentation
+├── package.json      # Workspace root dependencies orchestration configuration
+└── README.md         # Comprehensive systems architectural documentation and guide
 ---
 
 ## 🎥 Demo Video
