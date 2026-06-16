@@ -166,14 +166,20 @@ A 5-minute walkthrough demonstrating:
 ```bash
 git clone https://github.com/Nickfx9/clauseguard-AI.git
 cd clauseguard-AI
-2. Environment Setup
 
-Create a .env file in the root directory:
+# Install backend and frontend dependencies
+cd backend
+npm install
+cd ../frontend
+npm install
+cd ..
 
+# Create .env in root
 PORT=5000
 FOUNDRY_IQ_ENDPOINT=https://api.foundry.microsoft.com/v1
 FOUNDRY_IQ_KB_ID=clauseguard-statutory-laws-2026
 FOUNDRY_IQ_API_KEY=mock_key_during_initial_local_dev
-3. Run Services
-npm install
-npm run dev
+
+# Run services
+npm run start-backend
+npm run dev-frontend
