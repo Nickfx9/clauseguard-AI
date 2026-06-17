@@ -156,7 +156,7 @@ A 5-minute walkthrough demonstrating:
 - Web IQ risk detection
 - Final safety audit output
 
-📺 **Demo Video:** *(Link to be added before final submission)*
+📺 **Demo Video:** *https://youtu.be/nJh5dZ9oVCU*
 
 ---
 
